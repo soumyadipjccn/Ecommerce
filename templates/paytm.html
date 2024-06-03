@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+  <form action="{{ callback_url }}" method="POST">
+    <script
+      src="https://checkout.razorpay.com/v1/checkout.js"
+      data-key="{{ razorpay_merchant_key }}"
+      data-amount="{{ razorpay_amount }}"
+      data-currency="{{ currency }}"
+      data-order_id="{{ razorpay_order_id }}"
+      data-buttontext="Pay with Razorpay"
+      data-name="Your Site Name"
+      data-description="Test transaction"
+      data-image="https://your-logo-url.com/logo.png"
+      data-prefill.name="{{ request.user.username }}"
+      data-prefill.email="{{ request.user.email }}"
+      data-theme.color="#F37254"
+    ></script>
+    <input type="hidden" value="Hidden Element" name="hidden">
+  </form>
+</body>
+</html>
+
+
+
